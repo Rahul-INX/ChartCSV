@@ -11,7 +11,7 @@ from langchain.chains import ConversationalRetrievalChain
 
 # Set environment variables
 load_dotenv()
-deepinfra_api_token = os.getenv("DEEPINFRA_API_TOKEN")
+deepinfra_api_token = st.secrets["DEEPINFRA_API_TOKEN"]
 if deepinfra_api_token:
     os.environ["DEEPINFRA_API_TOKEN"] = deepinfra_api_token
 
