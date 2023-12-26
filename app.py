@@ -11,7 +11,7 @@ from langchain.chains import ConversationalRetrievalChain
 
 # Set environment variables
 load_dotenv()
-deepinfra_api_token = os.getenv("DEEPINFRA_API_TOKEN")
+deepinfra_api_token = st.secrets["DEEPINFRA_API_TOKEN"]
 if deepinfra_api_token:
     os.environ["DEEPINFRA_API_TOKEN"] = deepinfra_api_token
 
@@ -21,8 +21,8 @@ DB_FAISS_PATH = 'vectorstore/db_faiss'
 # Function to load the LLM based on the selected option
 def load_llm(selected_llm):
     models = {
-        "meta-llama/Llama-2-7b-chat-hf": {"temperature": 0.5, "repetition_penalty": 1.2, "max_new_tokens": 256, "top_p": 0.95},
-        "mistralai/Mixtral-8x7B-Instruct-v0.1": {"temperature": 0.3, "repetition_penalty": 1.2, "max_new_tokens": 256, "top_p": 0.95},
+        "meta-llama/Llama-2-7b-chat-hf": {"temperature": 0.1, "repetition_penalty": 1.2, "max_new_tokens": 256, "top_p": 0.95},
+        "mistralai/Mixtral-8x7B-Instruct-v0.1": {"temperature": 0.1, "repetition_penalty": 1.2, "max_new_tokens": 256, "top_p": 0.95},
         "mistralai/Mistral-7B-Instruct-v0.1": {"temperature": 0.1, "repetition_penalty": 1.2, "max_new_tokens": 256, "top_p": 0.95},
     }
 
